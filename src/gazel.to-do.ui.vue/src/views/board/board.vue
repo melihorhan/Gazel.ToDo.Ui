@@ -1,77 +1,163 @@
 <template>
-<div class="board">
-    <div class="card-deck">
-        <div class="card text-center" v-for="(board, index) in boards">
-            <board-item :key="index" :board="board" v-if="board.id > 0" />
-            <board-item-create @removeBoard="removeBoard" :index="index" :board="board" v-if="board.id == 0" />
+<div class="container-fluid pt-3">
+    <h3 class="font-weight-light text-white">Board</h3>
+    <div class="small  text-light">Drag and drop between swim lanes</div>
+    <div class="row flex-row flex-sm-nowrap py-3">
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">To Do</h6>
+                    <div class="items border border-light">
+                        <div class="card draggable shadow-sm" id="cd1" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-154</a>
+                                </div>
+                                <p>
+                                    This is a description of a item on the board.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                        <div class="card draggable shadow-sm" id="cd2" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-156</a>
+                                </div>
+                                <p>
+                                    This is a description of a item on the board.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                        <div class="card draggable shadow-sm" id="cd3" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-157</a>
+                                </div>
+                                <p>
+                                    This is an item on the board. There is some descriptive text that explains the item here.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">In-progess</h6>
+                    <div class="items border border-light">
+                        <div class="card draggable shadow-sm" id="cd1" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-152</a>
+                                </div>
+                                <p>
+                                    This is a task that is being worked on.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                        <div class="card draggable shadow-sm" id="cd2" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-153</a>
+                                </div>
+                                <p>
+                                    Another task here that is in progress.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Review</h6>
+                    <div class="items border border-light">
+                        <div class="card draggable shadow-sm" id="cd9" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-158</a>
+                                </div>
+                                <p>
+                                    This is a description of a item on the board.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Complete</h6>
+                    <div class="items border border-light">
+                        <div class="card draggable shadow-sm" id="cd11" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-144</a>
+                                </div>
+                                <p>
+                                    This is a description of an item.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                        <div class="card draggable shadow-sm" id="cd12" draggable="true" ondragstart="drag(event)">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <img src="//placehold.it/30" class="rounded-circle float-right">
+                                    <a href="" class="lead font-weight-light">TSK-146</a>
+                                </div>
+                                <p>
+                                    This is a description of a task item.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <button v-on:click="newBoard" type="button" class="mt-2 btn btn-outline-primary">New</button>
-    <ul v-if="errors && errors.length">
-        <li v-for="error of errors">
-            {{error.message}}
-        </li>
-    </ul>
 </div>
 </template>
 
+
 <script>
-import BoardItem from '../../components/board/board-item.vue';
-import BoardItemCreate from '../../components/board/board-item-create.vue';
-import axios from 'axios';
 
 export default {
+    name:"Board",
     data() {
         return {
             boards: [],
             errors: []
         }
-    },
-    components: {
-        BoardItem,
-        BoardItemCreate
-    },
-    mounted() {
-        this.fetch()
-    },
-    methods: {
-        fetch: function () {
-            axios.get('http://localhost:63048/boards')
-                .then(response => {
-                    this.boards = response.data
-                })
-                .catch(e => {
-                    this.errors.push(e)
-                })
-        },
-
-        newBoard: function () {
-            let newBoard = {};
-            newBoard.id = 0;
-            newBoard.name = "";
-            this.boards.push(newBoard);
-        },
-
-        removeBoard: function(index){
-            this.boards.splice(index, 1);
-        }
     }
+    
 }
 </script>
-
-<style>
-::-webkit-input-placeholder {
-    color: #808080;
-    text-align: center;
-}
-
-:-moz-placeholder {
-    color: #808080;
-    text-align: center;
-
-}
-
-input {
-    text-align: center;
-}
-</style>
