@@ -6,9 +6,9 @@ import store from "./store";
 import axios from 'axios'
 
 import jQuery from 'jquery'
-import bootstrap from 'bootstrap'
-
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 global.jQuery = jQuery
 global .$ = jQuery
 

@@ -1,11 +1,17 @@
 <template>
 <div>
-    <span v-on:click="deleteBoard(board.id)" class="float-right clickable mr-2 close-icon" data-effect="fadeOut"><i class="fa fa-times"></i></span>
-    <a class="board-link" v-bind:href="'/board/'+ board.id">
-        <div class="card-body">
-            <h5 class="card-title">{{board.name}}</h5>
+    <div class="dropdown">
+        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="float-right three-dot clickable"></div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index:9999">
+            <a class="new-board-link dropdown-item" href="#bannerformmodal" data-toggle="modal" :data-target="'#editModal' + index" >Edit</a>
+            <a v-on:click="deleteBoard(board.id)" class="dropdown-item" href="#">Delete</a>
         </div>
-    </a>
+    </div>
+    <div class="card-body">
+        <a class="board-link" v-bind:href="'/board/'+ board.id">
+            <h5 class="card-title">{{board.name}}</h5>
+        </a>
+    </div>
 </div>
 </template>
 
@@ -38,12 +44,16 @@ export default {
 
             }
         }
-    },
+    }
 };
 </script>
 
 <style>
 .clickable {
     cursor: pointer;
+}
+
+input.form-control {
+    font-size: 0.7rem;
 }
 </style>

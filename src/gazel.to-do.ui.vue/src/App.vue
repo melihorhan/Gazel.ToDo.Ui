@@ -4,7 +4,7 @@
 @import "../node_modules/font-awesome-sass/assets/stylesheets/font-awesome";
 @import './assets/styles/custom.scss';
 </style>
-
+  
 
 <template>
 <div class="container" id="app">

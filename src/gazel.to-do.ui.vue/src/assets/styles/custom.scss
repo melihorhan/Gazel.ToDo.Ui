@@ -29,3 +29,9 @@
     color:#000;
     text-decoration: none;
 }
+
+.three-dot:after{
+    content: '\2807';
+    font-size: 1.2em;
+    color: #fff;
+}

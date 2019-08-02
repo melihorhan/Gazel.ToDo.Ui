@@ -8,7 +8,10 @@
             <board-item-new />
         </div>
     </div>
-    <board-create @addBoard="addBoard"  />
+    <board-create @addBoard="addBoard" />
+    <div v-for="(board, index) in boards">
+        <board-edit :index="index" :board="board" />
+    </div>
     <ul class="list-group" v-if="errors && errors.length">
         <li class="list-group-item" v-for="error of errors">
             {{error.message}}
@@ -19,6 +22,7 @@
 
 <script>
 import BoardCreate from '../board/board-create.vue';
+import BoardEdit from '../board/board-edit.vue';
 import BoardItem from '../../components/board/board-item.vue';
 import BoardItemNew from '../../components/board/board-item-new.vue';
 import axios from 'axios';
@@ -34,7 +38,8 @@ export default {
     components: {
         BoardItem,
         BoardItemNew,
-        BoardCreate
+        BoardCreate,
+        BoardEdit
     },
     mounted() {
         this.getBoards()
@@ -52,7 +57,7 @@ export default {
         removeBoard: function (index) {
             this.boards.splice(index, 1);
         },
-        addBoard: function(board){
+        addBoard: function (board) {
             this.boards.push(board);
         }
     }
