@@ -10,6 +10,16 @@ import jQuery from 'jquery'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/index.css';
+
+Vue.use(VueToast);
+
+Vue.use(VueToast, {
+  // One of options
+  position: 'top-right'
+})
+
 global.jQuery = jQuery
 global .$ = jQuery
 

@@ -32,6 +32,7 @@
 <script>
 import axios from 'axios';
 import qs from 'qs';
+import Vue from 'vue';
 
 export default {
     name: 'BoardCreate',
@@ -54,8 +55,12 @@ export default {
 
             axios.post('http://localhost:63048/boards', data).then(response => {
                 $(this.$refs.createModalBoard).modal('hide');
+                Vue.$toast.success('işlem başarılı');
                 this.$emit('addBoard', response.data);
-            });
+            }).catch(error => {
+                 Vue.$toast.error(error.response.data.result_message);
+            })
+            .finally(function () {});;
         },
     }
 };
