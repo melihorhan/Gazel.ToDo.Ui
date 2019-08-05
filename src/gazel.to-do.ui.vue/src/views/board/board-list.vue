@@ -1,7 +1,7 @@
 <template>
 <div class="board">
     <div class="card-columns">
-        <div class="card text-center text-white bg-success mb-3" v-for="(board, index) in boards">
+        <div class="card text-center text-white bg-primary mb-3" v-for="(board, index) in boards">
             <board-item @removeBoard="removeBoard" :index="index" :board="board" v-if="board.id > 0" />
         </div>
         <div class="card text-center bg-light mb-3">

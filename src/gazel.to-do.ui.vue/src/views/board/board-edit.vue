@@ -1,15 +1,13 @@
 <template>
-<div ref="editModalBoard" class="modal" :id="'editModal' + index">
+<div ref="editBoardModal" class="modal" :id="'editModal' + board.id">
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Edit Board</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
-            <!-- Modal body -->
             <div class="modal-body">
                 <form>
                     <div class="form-group">
@@ -18,7 +16,6 @@
                 </form>
             </div>
 
-            <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button v-on:click="edit" type="button" class="btn btn-primary">Edit</button>
@@ -42,7 +39,7 @@ export default {
         }
     },
     mounted() {
-        $(this.$refs.editModalBoard).on('hidden.bs.modal', () => {
+        $(this.$refs.editBoardModal).on('hidden.bs.modal', () => {
             this.cloneBoard.name = this.board.name;
             console.log(this.cloneBoard.name);
         })
@@ -57,7 +54,7 @@ export default {
             axios.patch(`http://localhost:63048/boards/${this.board.id}`, data).then(response => {
                 this.board.name = this.cloneBoard.name;
                 console.log(this.board.name);
-                $(this.$refs.editModalBoard).modal('hide');
+                $(this.$refs.editBoardModal).modal('hide');
             });
         },
     }

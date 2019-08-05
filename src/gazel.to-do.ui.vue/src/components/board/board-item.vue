@@ -1,17 +1,19 @@
 <template>
-<div>
-    <div class="dropdown">
-        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="float-right three-dot clickable"></div>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index:9999">
-            <a class="new-board-link dropdown-item" href="#bannerformmodal" data-toggle="modal" :data-target="'#editModal' + index" >Edit</a>
-            <a v-on:click="deleteBoard(board.id)" class="dropdown-item" href="#">Delete</a>
+<div class="board-item">
+    <div class="card-header">
+        <div class="dropdown pull-right">
+            <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="three-dot clickable"></div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index:9999">
+                <a class="new-board-link dropdown-item" href="#bannerformmodal" data-toggle="modal" :data-target="'#editModal' + board.id">Edit</a>
+                <a v-on:click="deleteBoard(board.id)" class="dropdown-item" href="#">Delete</a>
+            </div>
         </div>
     </div>
-    <div class="card-body">
-        <a class="board-link" v-bind:href="'/board/'+ board.id">
+    <router-link class="board-link" :to="'/board/'+board.id">
+        <div class="card-body">
             <h5 class="card-title">{{board.name}}</h5>
-        </a>
-    </div>
+        </div>
+    </router-link>
 </div>
 </template>
 

@@ -32,6 +32,11 @@
 
 .three-dot:after{
     content: '\2807';
-    font-size: 1.2em;
+    font-size: 1em;
     color: #fff;
+}
+
+.board-item .card-header{
+    padding:0.05rem 0.05rem;
+    height: 1.5rem;
 }

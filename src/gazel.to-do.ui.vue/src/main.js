@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+import "./filters/date-filter"
 import router from "./router";
 import store from "./store";
 
@@ -16,8 +17,9 @@ global .$ = jQuery
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios
   
+
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount("#app")
