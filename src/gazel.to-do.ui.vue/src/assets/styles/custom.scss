@@ -1,0 +1,37 @@
+.board .card-columns {
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+
+    @include media-breakpoint-only(lg) {
+        column-count: 3;
+    }
+
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+
+    @include media-breakpoint-only(sm) {
+        column-count: 2;
+    }
+
+    @include media-breakpoint-only(xs) {
+        column-count: 1;
+    }
+}
+
+.board .card-columns .board-link{
+    color:#fff;
+    text-decoration: none;
+}
+
+.board .card-columns .new-board-link{
+    color:#000;
+    text-decoration: none;
+}
+
+.three-dot:after{
+    content: '\2807';
+    font-size: 1.2em;
+    color: #fff;
+}
