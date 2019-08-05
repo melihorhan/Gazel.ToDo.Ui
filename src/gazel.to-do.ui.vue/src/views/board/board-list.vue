@@ -1,5 +1,5 @@
 <template>
-<div class="board">
+<div class="board mt-5">
     <div class="card-columns">
         <div class="card text-center text-white bg-primary mb-3" v-for="(board, index) in boards">
             <board-item @removeBoard="removeBoard" :index="index" :board="board" v-if="board.id > 0" />
