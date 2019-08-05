@@ -1,6 +1,6 @@
 <template>
-<div class="card draggable shadow-sm" id="cd1" draggable="true" @ondragstart="drag(event)">
-    <div class="card text-center">
+<div class="card draggable shadow-sm" :id="'task-'+task.id" draggable="true" v-on:dragstart="dragstart">
+    <div class="text-center">
         <div class="card-header">
             {{task.completed === true? 'Completed': 'Not completed'}}
         </div>
@@ -9,15 +9,20 @@
             <a href="#" class="btn btn-primary">View</a>
         </div>
         <div class="card-footer text-muted">
-           <span>{{task.due_date | formatDate}}</span>
+            <span>{{task.due_date | formatDate}}</span>
         </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>
 export default {
     name: 'TaskItem',
-    props: ["task"]
+    props: ["task"],
+    methods: {
+        dragstart: function (event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+        }
+    }
 }
 </script>
