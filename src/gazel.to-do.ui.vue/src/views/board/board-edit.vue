@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <input ref="name" v-model="cloneBoard.name" placeholder="board name" type="text" class="form-control" id="name">
+                        <input autocomplete="off" ref="name" v-model="cloneBoard.name" placeholder="board name" type="text" class="form-control" id="name">
                     </div>
                 </form>
             </div>

@@ -1,6 +1,28 @@
 .board .card-columns {
     @include media-breakpoint-only(xl) {
-        column-count: 5;
+        column-count: 8;
+    }
+
+    @include media-breakpoint-only(lg) {
+        column-count: 3;
+    }
+
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+
+    @include media-breakpoint-only(sm) {
+        column-count: 2;
+    }
+
+    @include media-breakpoint-only(xs) {
+        column-count: 1;
+    }
+}
+
+.board-columns {
+    @include media-breakpoint-only(xl) {
+        column-count: 8;
     }
 
     @include media-breakpoint-only(lg) {
@@ -26,9 +48,17 @@
 }
 
 .board .card-columns .new-board-link{
-    color:#000;
     text-decoration: none;
 }
+
+.board-columns .new-column-link{
+    text-decoration: none;
+}
+
+.board-columns .new-task-link{
+    text-decoration: none;
+}
+
 
 .three-dot:after{
     content: '\2807';
@@ -39,4 +69,12 @@
 .board-item .card-header{
     padding:0.05rem 0.05rem;
     height: 1.5rem;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+input.form-control {
+    font-size: 0.7rem;
 }

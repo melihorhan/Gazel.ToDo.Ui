@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="card-body">
-        <h5><a class="new-board-link" href="#bannerformmodal" data-toggle="modal" data-target="#createModal">New</a></h5>
+        <h5><a class="new-board-link" href="#bannerformmodal" data-toggle="modal" data-target="#createModal">+NEW BOARD</a></h5>
     </div>
 </div>
 </template>

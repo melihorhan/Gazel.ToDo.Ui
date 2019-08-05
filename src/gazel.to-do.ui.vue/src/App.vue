@@ -8,7 +8,7 @@
 <template>
 <div id="app">
     <app-header></app-header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <router-view />
