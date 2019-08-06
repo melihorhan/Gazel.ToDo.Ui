@@ -1,8 +1,8 @@
 <template>
 <div class="container-fluid pt-3">
     <h3 class="font-weight-light text-dark">{{board.name}}</h3>
-    <div class="card-deck">
-        <div class="card" v-for="(column, index) in board.columns">
+    <div class="row flex-row flex-sm-nowrap py-3">
+        <div class="col-sm-6 col-md-4 col-xl-3" v-for="(column, index) in board.columns">
             <column-item :column="column" />
         </div>
         <div class="card">

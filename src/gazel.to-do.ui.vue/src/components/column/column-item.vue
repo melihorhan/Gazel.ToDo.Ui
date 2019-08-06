@@ -1,14 +1,16 @@
 <template>
-<div class="card-body">
-    <h6 class="card-title text-center text-uppercase text-truncate py-2">{{column.name}}</h6>
-    <div class="items">
-        <div v-for="(task,index) in column.tasks">
-            <task-item :task="task" />
+<div class="bg-light">
+    <div class="card-body">
+        <h6 class="card-title text-center text-uppercase text-truncate py-2">{{column.name}}</h6>
+        <div class="items">
+            <div v-for="(task,index) in column.tasks">
+                <task-item :task="task" />
+                <div class="dropzone rounded" v-on:drop="ondrop($event,column.id)" v-on:dragover="allowDrop" v-on:dragleave="clearDrop">&nbsp;</div>
+            </div>
+            <task-item-new :columnId="column.id" />
             <div class="dropzone rounded" v-on:drop="ondrop($event,column.id)" v-on:dragover="allowDrop" v-on:dragleave="clearDrop">&nbsp;</div>
+            <task-create @addTask="addTask" :columnId="column.id" />
         </div>
-        <task-item-new :columnId="column.id" />
-        <div class="dropzone rounded" v-on:drop="ondrop($event,column.id)" v-on:dragover="allowDrop" v-on:dragleave="clearDrop">&nbsp;</div>
-        <task-create @addTask="addTask" :columnId="column.id" />
     </div>
 </div>
 </template>
